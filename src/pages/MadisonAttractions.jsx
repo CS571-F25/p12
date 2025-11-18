@@ -1,6 +1,8 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import MadisonCard from '../components/MadisonCard';
-
+import chazen from '../assets/chazen.png'
+import Terrace from '../assets/Terrace.jpg'
+import monona from '../assets/monona.png'
 function MadisonAttractions() {
   const attractions = [
     {
@@ -31,19 +33,19 @@ function MadisonAttractions() {
       id: 5,
       title: "Memorial Union Terrace",
       description: "Iconic lakeside gathering spot with colorful chairs, live music, food, and stunning sunset views over Lake Mendota.",
-      image: "https://lh3.googleusercontent.com/p/AF1QipPOvvnNwJf7VoT5WsotECz-9er5jJtgvJcG3R6P=s1360-w1360-h1020-rw"
+      image: Terrace
     },
     {
       id: 6,
       title: "Chazen Museum of Art",
       description: "Free art museum with collections spanning ancient to contemporary art, located on the UW-Madison campus.",
-      image: "https://lh3.googleusercontent.com/p/AF1QipMc7nG65r3Gzi3q4OsWAzbIHZTIUiOKgzAyUYVr=s1360-w1360-h1020-rw"
+      image:chazen
     },
     {
       id: 7,
       title: "Monona Terrace",
       description: "Frank Lloyd Wright-designed convention center on Lake Monona, featuring rooftop gardens and stunning architecture.",
-      image: "https://lh3.googleusercontent.com/p/AF1QipMqsyxYBWZNI3BsCiIyuVzHPKs7BRDbaHVuMDbi=s1360-w1360-h1020-rw"
+      image: monona
     },
     {
       id: 8,
@@ -64,7 +66,7 @@ function MadisonAttractions() {
       <div className="text-center mb-4">
         <h1>Discover Madison Attractions</h1>
         <p className="lead">
-          Explore the best that Madison, Wisconsin has to offer! From historic landmarks
+          While your team is competing, don't forget to explore everything Madison offer! From historic landmarks
           to beautiful lakeside views, cultural institutions to vibrant markets, Madison
           is a city full of charm and exciting experiences for everyone.
         </p>
