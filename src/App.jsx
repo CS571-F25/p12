@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router'
+import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import Home from './pages/Home'
 import MadisonAttractions from './pages/MadisonAttractions'
