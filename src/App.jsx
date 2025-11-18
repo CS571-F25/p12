@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router'
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import Home from './pages/Home'
 import MadisonAttractions from './pages/MadisonAttractions'
 import Teams from './pages/Teams'
 import Footer from './components/Footer'
@@ -18,7 +19,6 @@ function Navigation() {
             <Nav.Link as={Link} to="/" active={location.pathname === '/'}>Home</Nav.Link>
             <Nav.Link as={Link} to="/teams" active={location.pathname === '/teams'}>Teams</Nav.Link>
             <Nav.Link as={Link} to="/attractions" active={location.pathname === '/attractions'}>Madison Attractions</Nav.Link>
-            <Nav.Link as={Link} to="/contact" active={location.pathname === '/contact'}>Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -34,10 +34,9 @@ function App() {
 
         <div className="flex-grow-1">
           <Routes>
-            <Route path="/" element={<MadisonAttractions />} />
+            <Route path="/" element={<Home />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/attractions" element={<MadisonAttractions />} />
-            <Route path="/contact" element={<div className="container mt-4"><h1>Contact Page</h1><p>Coming soon...</p></div>} />
           </Routes>
         </div>
 
