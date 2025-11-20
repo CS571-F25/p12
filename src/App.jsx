@@ -5,6 +5,7 @@ import MadisonAttractions from './pages/MadisonAttractions'
 import Teams from './pages/Teams'
 import Footer from './components/Footer'
 import './App.css'
+import ExecBoard from './pages/ExecBoard';
 
 function Navigation() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function Navigation() {
             <Nav.Link as={Link} to="/" active={location.pathname === '/'}>Home</Nav.Link>
             <Nav.Link as={Link} to="/teams" active={location.pathname === '/teams'}>Teams</Nav.Link>
             <Nav.Link as={Link} to="/attractions" active={location.pathname === '/attractions'}>Madison Attractions</Nav.Link>
+            <Nav.Link as={Link} to="/exec" active={location.pathname === '/exec'}>Exec Board</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -37,6 +39,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/attractions" element={<MadisonAttractions />} />
+            <Route path="/exec" element={<ExecBoard />} />
           </Routes>
         </div>
 
