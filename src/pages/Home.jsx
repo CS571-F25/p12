@@ -1,4 +1,6 @@
 import { Container } from 'react-bootstrap';
+import PhotoSlideshow from "../components/PhotoSlideshow";
+
 
 function Home() {
   return (
@@ -9,6 +11,16 @@ function Home() {
         <p className="lead">
           We're working on something amazing! Check back soon for updates.
         </p>
+      </div>
+      <div>
+        <PhotoSlideshow
+          images={[
+            `${import.meta.env.BASE_URL}images/mtb_image1.jpg`,
+            `${import.meta.env.BASE_URL}images/mtb_image2.jpg`,
+            `${import.meta.env.BASE_URL}images/mtb_image3.jpg`,
+            `${import.meta.env.BASE_URL}images/mtb_image4.jpg`,
+          ]}
+        />
       </div>
     </Container>
   );
