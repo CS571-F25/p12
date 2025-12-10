@@ -1,17 +1,23 @@
 import { Container } from 'react-bootstrap';
-import PhotoSlideshow from "../components/PhotoSlideshow";
 
+import PhotoSlideshow from "../components/PhotoSlideshow";
+import CountdownTimer from '../components/CountdownTimer';
 
 function Home() {
   return (
     <Container className="mt-5">
       <div className="text-center py-5">
         <h1 className="display-1 mb-4">MadTown Bhangra</h1>
-        <h2 className="text-muted mb-4">Coming Soon</h2>
-        <p className="lead">
-          We're working on something amazing! Check back soon for updates.
+        <CountdownTimer targetDate="2026-03-07T00:00:00" />
+        <p className="lead mt-4">
+          MadTown Bhangra is where talent meets adrenaline. We bring top collegiate bhangra 
+          teams to Madison for an unforgettable weekend packed with explosive dance performances,
+          fierce competition, and the unstoppable spirit of bhangra. From intricate sets to 
+          electric presence, this competition is all about passion, precision, and community.
+         
         </p>
       </div>
+
       <div>
         <PhotoSlideshow
           images={[
@@ -22,7 +28,7 @@ function Home() {
           ]}
         />
       </div>
-    </Container>
+</Container>
   );
 }
 
