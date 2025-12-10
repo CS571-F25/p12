@@ -8,11 +8,11 @@ function MadisonCard({ image, title, description, directionsLink }) {
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
         <Button
-          variant="primary"
           href={directionsLink}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-auto"
+          style={{ backgroundColor: '#6a0dad', borderColor: '#6a0dad', color: 'white' }}
         >
           Get Directions
         </Button>

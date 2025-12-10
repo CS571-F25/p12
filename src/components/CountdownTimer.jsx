@@ -30,29 +30,24 @@ function CountdownTimer({ targetDate }) {
   }, [targetDate]);
 
   return (
-    <div className="bg-black text-white rounded p-4 w-75 mx-auto">
-      <div className="d-flex justify-content-center gap-4 align-items-center">
-        <div className="text-center">
-          <div className="display-4 fw-bold mb-0">{timeLeft.days}</div>
-          <div className="mt-2">Days</div>
-        </div>
-        <span className="display-4 mb-0">:</span>
-        <div className="text-center">
-          <div className="display-4 fw-bold mb-0">{timeLeft.hours}</div>
-          <div className="mt-2">Hours</div>
-        </div>
-        <span className="display-4 mb-0">:</span>
-        <div className="text-center">
-          <div className="display-4 fw-bold mb-0">{timeLeft.minutes}</div>
-          <div className="mt-2">Mins</div>
-        </div>
-        <span className="display-4 mb-0">:</span>
-        <div className="text-center">
-          <div className="display-4 fw-bold mb-0">{timeLeft.seconds}</div>
-          <div className="mt-2">Secs</div>
+    <div className="text-white w-100" style={{ backgroundColor: '#6a0dad', padding: '10px 0' }}>
+      <div className="d-flex justify-content-center align-items-center gap-3">
+        <span className="fw-bold">Coming Soon 03.07.26</span>
+        <span>|</span>
+        <div className="d-flex align-items-center gap-2">
+          <span className="fw-bold">{timeLeft.days}</span>
+          <span className="small">Days</span>
+          <span>:</span>
+          <span className="fw-bold">{timeLeft.hours}</span>
+          <span className="small">Hours</span>
+          <span>:</span>
+          <span className="fw-bold">{timeLeft.minutes}</span>
+          <span className="small">Mins</span>
+          <span>:</span>
+          <span className="fw-bold">{timeLeft.seconds}</span>
+          <span className="small">Secs</span>
         </div>
       </div>
-      <div className="text-center mt-3 fs-5">Coming Soon 03.07.26</div>
     </div>
   );
 }
