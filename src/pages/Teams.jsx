@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import TeamCard from "../components/TeamCard";
+import EventScheduleCard from "../components/EventScheduleCard";
+import HotelCard from "../components/HotelCard";
 
 function Teams() {
   const [formData, setFormData] = useState({
@@ -42,12 +45,8 @@ function Teams() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    alert('✓ Successfully Submitted!\n\nThank you for your registration. We will reach out to you soon with more information.');
 
-    // Show success popup
-    alert('✓ Successfully Submitted!\n\nThank you for your registration. We will reach out to you soon with more information about your application.');
-
-    // Clear the form
     setFormData({
       teamName: '',
       university: '',
@@ -57,8 +56,79 @@ function Teams() {
     });
   };
 
+  // Team Data
+  const teams = [
+    { name: "Cardinal Bhangra", img: `${import.meta.env.BASE_URL}images/Cardinal.jpg` },
+    { name: "Classic City Bhangra", img: `${import.meta.env.BASE_URL}images/Classic.jpg` },
+    { name: "Vakhri Taur Diyan", img: `${import.meta.env.BASE_URL}images/Vakhri.jpg` },
+    { name: "Illini Bhangra", img: `${import.meta.env.BASE_URL}images/Illini.jpg` },
+    { name: "Columbia Bhangra", img: `${import.meta.env.BASE_URL}images/Columbia.jpg` },
+    { name: "Spartan Bhangra", img: `${import.meta.env.BASE_URL}images/Spartan.jpg` },
+    { name: "Boiler Bhangra", img: `${import.meta.env.BASE_URL}images/Boiler.jpg` },
+    { name: "Gator Bhangra", img: `${import.meta.env.BASE_URL}images/Gator.jpg` }
+  ];
+
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 teams-page" style={{ '--bs-btn-bg': '#6a0dad' }}>
+
+      {/* Team Showcase */}
+      <div className="text-center mb-5">
+        <h1 className="fw-bold">Competing Teams</h1>
+        <p className="text-center mb-4">
+          Below are all the incredible teams competing this year.
+          Use this section to get familiar with who you’ll be sharing the stage with!
+        </p>
+
+        <Button
+          style={{ backgroundColor: '#6a0dad', borderColor: '#6a0dad' }}
+          className="mt-3"
+          onClick={() => {
+            document.getElementById("application-form")?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Application Form ↓
+        </Button>
+      </div>
+
+      {/* Team Grid */}
+      <Row className="g-5 justify-content-center mb-5 px-3">
+        {teams.map(team => (
+          <Col key={team.name} xs={12} sm={6} md={4} lg={3}>
+            <TeamCard
+              teamName={team.name}
+              img={team.img}
+              alt={`${team.name} team logo`}
+            />
+          </Col>
+        ))}
+      </Row>
+
+      {/* Competition Weekend Title */}
+      <h2 className="text-center my-5 fw-bold" style={{ fontSize: "2.2rem" }}>
+        Competition Weekend Information
+      </h2>
+
+      <p className="text-center mt-4 mb-3">
+        This schedule outlines everything your team needs to know for competition day—
+        arrival times, warm-ups, staging, and performance flow.
+      </p>
+
+      {/* Schedule */}
+      <div className="my-5">
+        <EventScheduleCard />
+      </div>
+
+      <p className="text-center mt-5 mb-3">
+        Here is your home base for the weekend.
+        Use this section to quickly access hotel details and the booking website.
+      </p>
+
+      {/* Hotel Card (centered) */}
+      <div className="d-flex justify-content-center my-5">
+        <HotelCard />
+      </div>
+
+      {/* Form Section */}
       <div className="text-center mb-4">
         <h1>Join MadTown Bhangra</h1>
         <p className="lead">
@@ -67,7 +137,7 @@ function Teams() {
         </p>
       </div>
 
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-5" id="application-form">
         <Col md={8} lg={6}>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="teamName">
@@ -92,9 +162,7 @@ function Teams() {
               >
                 <option value="">Select your university</option>
                 {big10Schools.map((school, index) => (
-                  <option key={index} value={school}>
-                    {school}
-                  </option>
+                  <option key={index} value={school}>{school}</option>
                 ))}
               </Form.Select>
             </Form.Group>
@@ -131,7 +199,7 @@ function Teams() {
               <Form.Control
                 as="textarea"
                 rows={5}
-                placeholder="Tell us about your team's passion for bhangra and why you'd like to participate..."
+                placeholder="Tell us about your team's passion..."
                 name="reason"
                 value={formData.reason}
                 onChange={handleChange}
@@ -140,7 +208,11 @@ function Teams() {
             </Form.Group>
 
             <div className="d-grid">
-              <Button variant="primary" type="submit" size="lg">
+              <Button
+                type="submit"
+                size="lg"
+                style={{ backgroundColor: '#6a0dad', borderColor: '#6a0dad' }}
+              >
                 Submit Registration
               </Button>
             </div>
