@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 function TeamRegistrationForm() {
@@ -9,6 +9,14 @@ function TeamRegistrationForm() {
     teamMembers: '',
     reason: ''
   });
+
+  const otherUniversityRef = useRef(null);
+
+  useEffect(() => {
+    if (formData.university === 'Other' && otherUniversityRef.current) {
+      otherUniversityRef.current.focus();
+    }
+  }, [formData.university]);
 
   const big10Schools = [
     'University of Illinois',
@@ -88,6 +96,7 @@ function TeamRegistrationForm() {
             <Form.Group className="mb-3" controlId="otherUniversity">
               <Form.Label>Please specify your university</Form.Label>
               <Form.Control
+                ref={otherUniversityRef}
                 type="text"
                 placeholder="Enter your university name"
                 name="otherUniversity"
